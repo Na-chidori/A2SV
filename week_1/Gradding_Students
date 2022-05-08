@@ -1,0 +1,13 @@
+ 
+vector<int> gradingStudents(vector<int> grades) {
+    for(int i=0;i<grades.size();i++){
+         if(grades.at(i)<38){
+              continue;
+         }
+           else if(grades.at(i)%5>=3){
+               grades.at(i)+=5-grades.at(i)%5;
+         }
+         
+    }
+         return grades;  
+}
