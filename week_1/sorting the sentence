@@ -1,0 +1,26 @@
+class Solution {
+    public String sortSentence(String s) {
+        int n= s.length();
+        String[] wordsins= new String[n];
+        char wrd1,wrd2;
+        String str= "";
+        wordsins = s.split(" ");
+        int w = wordsins.length;
+         for(int i=0;i<w;i++){
+             for(int j=0;j<w-1;j++){
+                 wrd1=wordsins[j].charAt(wordsins[j].length()-1);
+                 wrd2=wordsins[j+1].charAt(wordsins[j+1].length()-1);
+                 if(wrd1>wrd2){
+                     String temp=wordsins[j];
+                     wordsins[j]=wordsins[j+1];
+                     wordsins[j+1]=temp;
+                 }
+             }
+         }
+        for(String q : wordsins){
+            str+=q.substring(0, q.length() - 1) + " ";
+        }
+        String result = str.substring(0, str.length()-1);
+        return (result);
+    }
+}
