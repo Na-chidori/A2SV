@@ -1,0 +1,20 @@
+import java.util.Scanner;
+import java.lang.*;
+public class array {
+
+	public static void main(String[] args) {
+		 Scanner parameter= new Scanner(System.in);
+		    double   m=parameter.nextInt();
+		    double n=parameter.nextInt();
+		    double a=parameter.nextInt();
+		    double first_flagstone= Math.ceil(m/a);
+		    double flagstone_height=Math.ceil(n/a);
+		   long result=(long) (first_flagstone*flagstone_height);
+		  
+		   
+		    System.out.println(result);
+		// TODO Auto-generated method stub
+
+	}
+
+}
