@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class array {
+
+	public static void main(String[] args) {
+		 Scanner parameter= new Scanner(System.in);
+		    int m=parameter.nextInt();
+		    int n=parameter.nextInt();
+		    int result=(m*n)/2;
+		    System.out.println(result);
+		// TODO Auto-generated method stub
+
+	}
+
+}
