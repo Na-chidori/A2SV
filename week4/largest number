@@ -1,0 +1,28 @@
+class Solution {
+    public String largestNumber(int[] nums) {
+        String tostr,str1,str2;
+        tostr= "";
+        int temp;
+        for(int i=0;i<nums.length;i++){
+             if (nums.length>2){
+                 if (nums[0]==0 && nums[1]==0){
+                tostr="0";
+            }
+            }
+            for(int j=i+1;j<nums.length;j++){
+                str1=String.valueOf(nums[i]);
+                str2=String.valueOf(nums[j]);
+                if ((str2+str1).compareTo(str1+str2)>0){
+                    temp=nums[i];
+                    nums[i]=nums[j];
+                    nums[j]=temp;
+                }
+              
+            }
+            tostr+=String.valueOf(nums[i]);
+             
+        }
+        return (tostr);
+        
+    }
+}
