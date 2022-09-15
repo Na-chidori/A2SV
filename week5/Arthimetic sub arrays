@@ -1,0 +1,18 @@
+class Solution {
+    public List<Boolean> checkArithmeticSubarrays(int[] nums, int[] l, int[] r) {
+        List<Boolean> n= new ArrayList<>();
+        for(int i=0;i<l.length;i++){
+            n.add(checkArithmeticSubarrays(Arrays.copyOfRange(nums,l[i],r[i]+1)));
+        }
+        return n;
+    }
+    public boolean checkArithmeticSubarrays(int[] nums){
+        if(nums.length<2) return false;
+        if(nums.length==2) return true;
+        Arrays.sort(nums);
+        for(int i=1;i<nums.length;i++){
+            if(nums[i] - nums[i-1] != nums[1] - nums[0]) return false;
+        }
+        return true;
+    }
+}
