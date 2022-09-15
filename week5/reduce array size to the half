@@ -1,0 +1,24 @@
+class Solution {
+    public int minSetSize(int[] arr) {
+        int n=arr.length;
+        HashMap<Integer,Integer> count=new HashMap<>();
+        for(int i:arr)
+            count.put(i,count.getOrDefault(i,0)+1);
+        int[] freq=new int[count.values().size()];
+        int m=freq.length;
+        int i=0;
+        for(int j:count.values())
+            freq[i++] =j;
+        Arrays.sort(freq);
+        
+        int ans=0;
+        int half=n/2;
+        int removedSum=0;
+        i=m-1;
+        while(removedSum<half){
+            ans++;
+            removedSum+=freq[i--];
+        }
+        return ans;
+    }
+}
