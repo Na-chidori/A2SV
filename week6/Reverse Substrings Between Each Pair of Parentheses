@@ -1,0 +1,27 @@
+class Solution { 
+    public String reverseParentheses(String s) {
+        StackCharacter> stack=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char cha=s.charAt(i);
+            if ( cha==')'){
+                Queue<Character> queue=new ArrayDeque<>();
+                while(stack.peek() !='('){
+                    queue.add(stack.pop());
+                }
+                stack.pop();
+                while (!queue.isEmpty()){
+                    stack.push(queue.remove());
+                }
+            }else{
+                stack.push(cha);
+            }
+        }
+        char[] ans=new char[stack.size()];
+        int i=ans.length-1;
+        while (stack.size()>0){
+            ans[i--]=s    tack.pop();
+        }                                                                                                                                                                                          
+} 
+        return new String(ans);
+    }
+}
