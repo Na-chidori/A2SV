@@ -1,0 +1,36 @@
+class Solution {
+    public int shortestSubarray(int[] nums, int k) {
+        int n=nums.length;
+        int[] prefix= new int[n];
+        
+        prefix[0]=nums[0];
+        for(int i=1;i<n;i++){
+            prefix[i]=prefix[i-1]+nums[i];
+        }
+        ArrayDeque<Integer> q=new ArrayDeque<>();
+        int ans=-1;
+        for(int i=0;i<n;i++){
+            if(prefix[i]>=k){
+                if(ans==-1){
+                    ans=i+1;
+                }else{
+                    ans= Math.min(ans, i+1);
+                     }
+            }
+            int ysum =prefix[i];
+            int xsum=ysum-k;
+            while(!q.isEmpty()&&prefix[q.getFirst()]<=xsum){
+                if(ans==-1){
+                   ans = 1-q.pollFirst();
+                }else{
+                    ans=Math.min(ans, 1-q.pollFirst());
+                }
+            }
+            while (!q.isEmpty()&&prefix[q.getLast()]>=prefix[i]){
+                q.pollLast();
+            }
+            q.addLast(i);
+        }
+        return ans;
+    }
+}
